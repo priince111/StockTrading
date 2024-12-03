@@ -90,6 +90,7 @@ void PriceTimeOrderMatchingStrategy::matchOrders(std::vector<std::shared_ptr<Ord
             		if ((*sellOrder)->getPrice() <= (*it)->getPrice()) {
                 		matchedOrders.push_back(*it);
                 		it = buyOrders.erase(it); // Remove the matched buy order
+						sellOrders.erase(sellOrder); // Remove sell order
             		} else {
                 		++it;
             		}
